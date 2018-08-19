@@ -5,6 +5,10 @@ FROM centos:centos7
 # Copy the current directory contents into the container at /app
 # ADD . /app
 
-RUN yum -y install httpd iproute net-tools; yum clean all; systemctl enable httpd.service
+RUN yum -y install iproute net-tools;
+RUN yum -y install epel-release;
+RUN yum -y install nginx;
+RUN systemctl enable nginx;
+
 
 CMD [ "/usr/sbin/init" ]
