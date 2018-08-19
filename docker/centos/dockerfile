@@ -1,0 +1,10 @@
+FROM centos:centos7
+# Set the working directory to /app
+#WORKDIR /app
+
+# Copy the current directory contents into the container at /app
+# ADD . /app
+
+RUN yum -y install httpd iproute; yum clean all; systemctl enable httpd.service
+
+CMD [ "/usr/sbin/init" ]
